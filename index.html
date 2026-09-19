@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <title>Nutri-A TikTok authorization</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    main {
+      max-width: 720px;
+      margin: 64px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, .06);
+    }
+    h1 { margin: 0 0 14px; font-size: 28px; }
+    p { line-height: 1.55; }
+    .ok { color: #166534; }
+    .err { color: #b91c1c; }
+    .muted { color: #64748b; }
+    code {
+      display: block;
+      word-break: break-all;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 650;
+      cursor: pointer;
+      background: #0f172a;
+      color: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #020617; color: #e2e8f0; }
+      .card { background: #0f172a; border-color: #1e293b; }
+      .muted { color: #94a3b8; }
+      code { background: #1e293b; color: #f8fafc; }
+      button { background: #f8fafc; color: #0f172a; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1 id="title">Nutri-A TikTok authorization</h1>
+      <p id="message" class="muted">
+        Callback page is online and ready.
+      </p>
+
+      <div id="codeWrap" hidden>
+        <p><strong>Authorization code</strong></p>
+        <code id="code"></code>
+        <button id="copy" type="button">Copy code</button>
+      </div>
+
+      <p id="stateWrap" hidden>
+        <strong>State:</strong> <span id="state"></span>
+      </p>
+
+      <p class="muted">
+        This page does not store or transmit TikTok authorization data.
+        After copying the authorization code, return to the Nutri-A setup flow.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("auth_code") || params.get("code") || "";
+      const state = params.get("state") || "";
+      const error =
+        params.get("error_description") ||
+        params.get("error") ||
+        "";
+
+      const title = document.getElementById("title");
+      const message = document.getElementById("message");
+      const codeWrap = document.getElementById("codeWrap");
+      const codeEl = document.getElementById("code");
+      const stateWrap = document.getElementById("stateWrap");
+      const stateEl = document.getElementById("state");
+      const copy = document.getElementById("copy");
+
+      if (error) {
+        title.textContent = "TikTok authorization failed";
+        title.className = "err";
+        message.textContent = error;
+      } else if (code) {
+        title.textContent = "TikTok authorization received";
+        title.className = "ok";
+        message.textContent =
+          "TikTok returned an authorization code successfully.";
+        codeEl.textContent = code;
+        codeWrap.hidden = false;
+
+        if (state) {
+          stateEl.textContent = state;
+          stateWrap.hidden = false;
+        }
+      }
+
+      copy.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(code);
+          copy.textContent = "Copied";
+        } catch {
+          copy.textContent = "Select and copy the code above";
+        }
+      });
+
+      if (window.location.search) {
+        history.replaceState({}, document.title, window.location.pathname);
+      }
+    })();
+  </script>
+</body>
+</html>
