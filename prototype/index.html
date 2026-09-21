@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>Nutri-A TikTok Accounts API Prototype</title>
+  <style>
+    :root{
+      --bg:#07111f;--panel:#0d1b2a;--panel2:#12243a;--text:#f8fafc;--muted:#9fb0c5;
+      --line:#25415f;--green:#35e58a;--blue:#4f8cff;--warn:#f8c15c;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#06101c,#0a1524);color:var(--text)}
+    main{max-width:1100px;margin:0 auto;padding:40px 22px 70px}
+    .top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:26px}
+    .brand{font-weight:800;font-size:22px;letter-spacing:.2px}
+    .badge{display:inline-block;margin-top:10px;padding:7px 10px;border:1px solid var(--warn);border-radius:999px;color:#ffe3a6;font-size:13px}
+    h1{font-size:34px;line-height:1.15;margin:8px 0 8px}
+    p{color:var(--muted);line-height:1.55;margin:0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:rgba(13,27,42,.96);border:1px solid var(--line);border-radius:18px;padding:20px}
+    .card h2{font-size:18px;margin:0 0 14px}
+    .kv{display:grid;grid-template-columns:150px 1fr;gap:9px 14px;font-size:14px}
+    .kv div:nth-child(odd){color:var(--muted)}
+    .queue{display:flex;flex-direction:column;gap:10px}
+    .item{display:flex;justify-content:space-between;gap:14px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px}
+    .type{font-size:12px;color:#b9c8da;margin-bottom:3px}
+    .status{font-size:12px;padding:5px 8px;border-radius:999px;border:1px solid var(--line)}
+    .approved{color:#8ff0b8;border-color:#2e8e5a}
+    .pending{color:#ffd78a;border-color:#8a6a2e}
+    .flow{grid-column:1/-1}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0 20px}
+    .step{min-height:104px;border:1px solid var(--line);background:var(--panel2);border-radius:14px;padding:14px}
+    .step strong{display:block;font-size:14px;margin-bottom:8px}
+    .step span{font-size:12px;color:var(--muted);line-height:1.4}
+    .step.active{outline:2px solid var(--blue)}
+    .step.done{border-color:#2e8e5a}
+    .controls{display:flex;gap:10px;flex-wrap:wrap}
+    button{border:0;border-radius:11px;padding:11px 15px;font-weight:750;cursor:pointer}
+    .primary{background:var(--green);color:#052112}
+    .secondary{background:#1b3553;color:var(--text);border:1px solid var(--line)}
+    .result{margin-top:16px;padding:14px;border-radius:12px;background:#0a1726;border:1px solid var(--line);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;color:#bcd0e7;min-height:48px}
+    footer{margin-top:20px;color:#7990a9;font-size:12px;text-align:center}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.top{flex-direction:column}.kv{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div>
+      <div class="brand">Nutri-A Social Media</div>
+      <div class="badge">API integration prototype — pending TikTok approval</div>
+      <h1>TikTok Accounts API publishing workflow</h1>
+      <p>This prototype demonstrates the planned user flow for Nutri-A's own TikTok business account. It does not call TikTok APIs and does not contain credentials or tokens.</p>
+    </div>
+  </div>
+
+  <section class="grid">
+    <article class="card">
+      <h2>Authorized account</h2>
+      <div class="kv">
+        <div>Brand</div><div>Nutri-A</div>
+        <div>TikTok account</div><div>@nutri_a_webaruhaz</div>
+        <div>Usage</div><div>Own business account only</div>
+        <div>Requested access</div><div>Basic account info, Video Publish, Photo Publish</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Approved content queue</h2>
+      <div class="queue">
+        <div class="item">
+          <div><div class="type">RECIPE_REEL</div><strong>Salty Caramel Fruit Yogurt</strong></div>
+          <div class="status approved">APPROVED</div>
+        </div>
+        <div class="item">
+          <div><div class="type">RECIPE_IMAGE</div><strong>Nutri-A recipe post</strong></div>
+          <div class="status pending">SCHEDULED</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card flow">
+      <h2>Prototype publishing flow</h2>
+      <p>Use the button below during the screen recording to demonstrate the planned workflow.</p>
+      <div class="steps">
+        <div class="step active" data-step="0"><strong>1. Authorize account</strong><span>Nutri-A authorizes its own TikTok business account.</span></div>
+        <div class="step" data-step="1"><strong>2. Validate account</strong><span>Read basic account information to verify the authorized account.</span></div>
+        <div class="step" data-step="2"><strong>3. Select approved content</strong><span>Only internally approved content from the GitHub queue is eligible.</span></div>
+        <div class="step" data-step="3"><strong>4. Publish</strong><span>Use Video Publish or Photo Publish based on the approved content type.</span></div>
+        <div class="step" data-step="4"><strong>5. Store status</strong><span>Record publishing status for retry, audit, and duplicate prevention.</span></div>
+      </div>
+      <div class="controls">
+        <button class="primary" id="next">Run next prototype step</button>
+        <button class="secondary" id="reset">Reset prototype</button>
+      </div>
+      <div class="result" id="result">Prototype ready. No TikTok API request has been sent.</div>
+    </article>
+  </section>
+
+  <footer>Nutri-A internal workflow prototype • no third-party account management • no production credentials</footer>
+</main>
+<script>
+(() => {
+  const steps=[...document.querySelectorAll('.step')];
+  const result=document.getElementById('result');
+  const next=document.getElementById('next');
+  const reset=document.getElementById('reset');
+  const messages=[
+    'Authorization step demonstrated: Nutri-A own business account selected.',
+    'Account validation demonstrated: requested scope = basic account info.',
+    'Approved queue item selected: RECIPE_REEL — Salty Caramel Fruit Yogurt.',
+    'Publishing step demonstrated: planned endpoint category = Video Publish.',
+    'Status persistence demonstrated: PUBLISHED state would be written to the internal GitHub workflow.'
+  ];
+  let i=0;
+  function paint(){
+    steps.forEach((s,idx)=>{
+      s.classList.remove('active','done');
+      if(idx<i) s.classList.add('done');
+      if(idx===i && i<steps.length) s.classList.add('active');
+      if(i===steps.length) s.classList.add('done');
+    });
+  }
+  next.addEventListener('click',()=>{
+    if(i<messages.length){
+      result.textContent=messages[i]+' This is a prototype only; no TikTok API request was sent.';
+      i++;
+      paint();
+      if(i===messages.length) next.textContent='Prototype complete';
+    }
+  });
+  reset.addEventListener('click',()=>{
+    i=0; next.textContent='Run next prototype step';
+    result.textContent='Prototype ready. No TikTok API request has been sent.';
+    paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
