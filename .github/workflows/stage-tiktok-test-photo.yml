@@ -4,12 +4,6 @@ on:
   push:
     paths:
       - '.github/workflows/stage-tiktok-test-photo.yml'
-  pull_request:
-    branches:
-      - main
-    types: [opened, synchronize, reopened]
-    paths:
-      - '.github/workflows/stage-tiktok-test-photo.yml'
 
 permissions:
   contents: write
