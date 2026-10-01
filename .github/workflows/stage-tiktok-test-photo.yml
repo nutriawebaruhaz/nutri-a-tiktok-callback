@@ -21,10 +21,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p tiktok-media
-          curl --fail --location --silent --show-error             'https://static.wixstatic.com/media/f9969b_94e8b03887e744eb8080d16e9b0487da~mv2.png/v1/fit/w_1080,h_1080/file.jpg'             --output 'tiktok-media/weekly-2026-09-18-recipe-sweety-chili-tofu-noodles-v1.jpg'
-          test -s 'tiktok-media/weekly-2026-09-18-recipe-sweety-chili-tofu-noodles-v1.jpg'
-          file 'tiktok-media/weekly-2026-09-18-recipe-sweety-chili-tofu-noodles-v1.jpg'
-          bytes=$(wc -c < 'tiktok-media/weekly-2026-09-18-recipe-sweety-chili-tofu-noodles-v1.jpg')
+          curl --fail --location --silent --show-error             'https://static.wixstatic.com/media/f9969b_a63239c27df9494390abfe487b87150a~mv2.jpg/v1/fit/w_1080,h_1080/file.jpg'             --output 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
+          test -s 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
+          file 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
+          bytes=$(wc -c < 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg')
           if [[ "$bytes" -gt 20000000 ]]; then
             echo "Photo exceeds TikTok 20 MB limit." >&2
             exit 1
@@ -36,10 +36,10 @@ jobs:
           set -euo pipefail
           git config user.name 'nutri-a-social-engine'
           git config user.email 'actions@users.noreply.github.com'
-          git add 'tiktok-media/weekly-2026-09-18-recipe-sweety-chili-tofu-noodles-v1.jpg'
+          git add 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
           if git diff --cached --quiet; then
             echo "TIKTOK_TEST_PHOTO_ALREADY_CURRENT"
           else
-            git commit -m 'Stage TikTok public photo test media'
+            git commit -m 'Stage protected TikTok photo media'
             git push origin HEAD:main
           fi
