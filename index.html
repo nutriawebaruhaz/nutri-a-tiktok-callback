@@ -86,13 +86,44 @@
 
   <script>
     (() => {
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get("auth_code") || params.get("code") || "";
-      const state = params.get("state") || "";
-      const error =
-        params.get("error_description") ||
-        params.get("error") ||
-        "";
+      const queryParams = new URLSearchParams(window.location.search);
+      const hashParams = new URLSearchParams(
+        window.location.hash.startsWith("#")
+          ? window.location.hash.slice(1)
+          : window.location.hash
+      );
+
+      const read = (...keys) => {
+        for (const key of keys) {
+          const q = queryParams.get(key);
+          if (q) return q;
+          const h = hashParams.get(key);
+          if (h) return h;
+        }
+        return "";
+      };
+
+      const code = read(
+        "auth_code",
+        "code",
+        "authorization_code",
+        "authCode",
+        "authorizationCode"
+      );
+      const state = read("state");
+      const error = read(
+        "error_description",
+        "error_message",
+        "error",
+        "message"
+      );
+
+      const returnedKeys = Array.from(
+        new Set([
+          ...queryParams.keys(),
+          ...hashParams.keys()
+        ])
+      );
 
       const title = document.getElementById("title");
       const message = document.getElementById("message");
@@ -118,6 +149,12 @@
           stateEl.textContent = state;
           stateWrap.hidden = false;
         }
+      } else if (returnedKeys.length) {
+        title.textContent = "TikTok returned without an authorization code";
+        title.className = "err";
+        message.textContent =
+          "Returned parameter names: " + returnedKeys.join(", ") +
+          ". No parameter values are stored or shown.";
       }
 
       copy.addEventListener("click", async () => {
@@ -129,9 +166,8 @@
         }
       });
 
-      if (window.location.search) {
-        history.replaceState({}, document.title, window.location.pathname);
-      }
+      // Keep the returned URL visible during troubleshooting so TikTok's
+      // callback shape can be verified. The page does not transmit or store it.
     })();
   </script>
 </body>
