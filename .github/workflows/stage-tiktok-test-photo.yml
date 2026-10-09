@@ -8,38 +8,55 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: nutri-a-tiktok-photo-stage
+  cancel-in-progress: false
+
 jobs:
   stage:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
 
     steps:
       - name: Checkout callback repo
         uses: actions/checkout@v7
 
-      - name: Download validated 1080x1080 JPEG from Wix
+      - name: Install imaging dependency
+        run: python -m pip install Pillow==11.3.0
+
+      - name: Download and verify freshly approved Wix graphic
         run: |
           set -euo pipefail
           mkdir -p tiktok-media
-          curl --fail --location --silent --show-error             'https://static.wixstatic.com/media/f9969b_a63239c27df9494390abfe487b87150a~mv2.jpg/v1/fit/w_1080,h_1080/file.jpg'             --output 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
-          test -s 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
-          file 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
-          bytes=$(wc -c < 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg')
-          if [[ "$bytes" -gt 20000000 ]]; then
-            echo "Photo exceeds TikTok 20 MB limit." >&2
-            exit 1
-          fi
-          echo "TIKTOK_TEST_PHOTO_STAGED_BYTES=$bytes"
+          curl --fail --location --silent --show-error \
+            'https://static.wixstatic.com/media/f9969b_1ac1fbe47f9d408eba85d1d2d3f462f6~mv2.png' \
+            --output /tmp/nutri-a-social-e2e-original.png
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          source = Path('/tmp/nutri-a-social-e2e-original.png')
+          target = Path('tiktok-media/test-2026-10-09-benfit-margherita-pizza-v1.jpg')
+          with Image.open(source) as img:
+              assert img.size == (3000, 3000), f'WIX_MEDIA_BAD_DIMENSIONS: {img.size}'
+              assert img.format == 'PNG', f'WIX_MEDIA_WRONG_TYPE: {img.format}'
+              img.convert('RGB').resize((1080, 1080), Image.Resampling.LANCZOS).save(target, format='JPEG', quality=90, optimize=True)
+          with Image.open(target) as img:
+              assert img.size == (1080, 1080), f'PHOTO_BAD_DIMENSIONS: {img.size}'
+              assert img.format == 'JPEG', f'PHOTO_BAD_TYPE: {img.format}'
+          assert 0 < target.stat().st_size <= 20_000_000, 'TIKTOK_MEDIA_BAD_SIZE'
+          print(f'TIKTOK_PHOTO_STAGED_BYTES={target.stat().st_size}')
+          PY
+          sha256sum tiktok-media/test-2026-10-09-benfit-margherita-pizza-v1.jpg
 
-      - name: Commit staged test photo
+      - name: Persist media exactly once
         run: |
           set -euo pipefail
           git config user.name 'nutri-a-social-engine'
           git config user.email 'actions@users.noreply.github.com'
-          git add 'tiktok-media/weekly-2026-09-30-recipe-sweety-chili-tofu-rice-bowl-v1.jpg'
+          git add 'tiktok-media/test-2026-10-09-benfit-margherita-pizza-v1.jpg'
           if git diff --cached --quiet; then
-            echo "TIKTOK_TEST_PHOTO_ALREADY_CURRENT"
+            echo 'TIKTOK_TEST_PHOTO_ALREADY_CURRENT'
           else
-            git commit -m 'Stage protected TikTok photo media'
+            git commit -m 'Stage new BenFit pizza test photo for TikTok'
             git push origin HEAD:main
           fi
