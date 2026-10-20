@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "batchWeek": "2026-10-18",
+  "source": "VERIFIED_NUTRI_A_WIX_MEDIA",
+  "posts": [
+    {
+      "referenceId": "weekly-2026-10-20-honey-mustard-chicken-sandwich-v1",
+      "scheduledFor": "2026-10-20T19:00:00+02:00",
+      "route": "VIDEO",
+      "sourceUrl": "https://static.wixstatic.com/media/f9969b_7088bab0f6744729a7b78b364e5d479d~mv2.jpg"
+    },
+    {
+      "referenceId": "weekly-2026-10-21-herb-croquettes-dip-v1",
+      "scheduledFor": "2026-10-21T19:00:00+02:00",
+      "route": "PHOTO",
+      "sourceUrl": "https://static.wixstatic.com/media/f9969b_62f1fbab1aeb4bffbc8720b16948e58f~mv2.jpg"
+    },
+    {
+      "referenceId": "weekly-2026-10-22-tomato-tuna-penne-v1",
+      "scheduledFor": "2026-10-22T19:00:00+02:00",
+      "route": "VIDEO",
+      "sourceUrl": "https://static.wixstatic.com/media/f9969b_b5c7a0f7a1fc43de9ccbb0e034ef5402~mv2.jpg"
+    },
+    {
+      "referenceId": "weekly-2026-10-23-sweet-chili-tofu-quinoa-v1",
+      "scheduledFor": "2026-10-23T19:00:00+02:00",
+      "route": "PHOTO",
+      "sourceUrl": "https://static.wixstatic.com/media/f9969b_e5ae51db69e44134bff42e41ce632468~mv2.jpg"
+    },
+    {
+      "referenceId": "weekly-2026-10-24-berry-vanilla-pancakes-v1",
+      "scheduledFor": "2026-10-24T19:00:00+02:00",
+      "route": "VIDEO",
+      "sourceUrl": "https://static.wixstatic.com/media/f9969b_303d0610e9624eabaa19a9819913886f~mv2.jpg"
+    }
+  ]
+}
