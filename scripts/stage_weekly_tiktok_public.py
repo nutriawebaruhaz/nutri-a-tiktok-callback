@@ -98,23 +98,29 @@ def main() -> None:
                 verify.verify()
             if route == "PHOTO":
                 filename = ref + "-tiktok-1080.jpg"
-                path = OUT / filename
+                path = tmpdir / filename
                 path.write_bytes(poster.read_bytes())
                 transport = "photo"
                 mime = "image/jpeg"
                 max_bytes = 19_922_944
             else:
                 filename = ref + ".mp4"
-                path = OUT / filename
+                path = tmpdir / filename
                 make_video(poster, path)
                 transport = "video"
                 mime = "video/mp4"
                 max_bytes = 1_000_000_000
             if not 0 < path.stat().st_size <= max_bytes:
                 raise RuntimeError(f"TIKTOK_OUTPUT_BYTE_LIMIT_FAIL {ref}")
+            final = OUT / filename
+            if final.is_file():
+                if sha256(final) != sha256(path):
+                    raise RuntimeError(f"TIKTOK_EXISTING_MEDIA_IMMUTABLE {ref}")
+            else:
+                final.write_bytes(path.read_bytes())
             items[ref] = {transport: {
                 "url": PREFIX + filename,
-                "sha256": sha256(path),
+                "sha256": sha256(final),
                 "contentType": mime,
             }}
             print(f"TIKTOK_STAGE_ITEM_PASS ref={ref} route={route} bytes={path.stat().st_size}")
