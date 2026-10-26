@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "batchWeek": "2026-10-25",
+  "media": [
+    {
+      "path": "tiktok-media/weekly-2026-10-26-tomato-basil-gnocchi-v1-tiktok-1080.jpg",
+      "sha256": "c058b783ca814e3bb04fce4f41c389d369a0e2f908255b222d5aa23111702dd1",
+      "gitBlobSha": "810f260906db74f821667a3a3c2d3be0705aef48"
+    },
+    {
+      "path": "tiktok-media/weekly-2026-10-27-tomato-mozzarella-pizza-v1.mp4",
+      "sha256": "566d9f3c42ed8e91a4dc70c7e168d6803694a8cfa3b1ff49b254df93fb69139b",
+      "gitBlobSha": "d389198b949187163112c81db3aa4ac654d77bd7"
+    },
+    {
+      "path": "tiktok-media/weekly-2026-10-28-basil-pesto-fusilli-v1-tiktok-1080.jpg",
+      "sha256": "702179b6378dfcee391c6ad3cf4135abd8ed0b4fc03f386dd3936650dfe40a18",
+      "gitBlobSha": "701737a5989f39dd0e565dc9cdc44785d0ee2e96"
+    },
+    {
+      "path": "tiktok-media/weekly-2026-10-29-smoky-bbq-chicken-skewers-v1.mp4",
+      "sha256": "548a656d182627cbf011b44ec6cb63ae79cdc0d7e980657f0a1a44feaeddbe41",
+      "gitBlobSha": "d9087c92bf438f856ec8b0172462b292adeabc6c"
+    },
+    {
+      "path": "tiktok-media/weekly-2026-10-30-ketchup-potato-wedges-v1-tiktok-1080.jpg",
+      "sha256": "2bf21ca7b4cf174364e0e94ca6edc965a5dd8e8d7a6aa416a812f648f512a6af",
+      "gitBlobSha": "828fa7950d2a397f029af954254353ddbbea8521"
+    },
+    {
+      "path": "tiktok-media/weekly-2026-10-31-chocolate-banana-oatmeal-v1.mp4",
+      "sha256": "4e9e568c3535891e44fbc151f6b04c06410768493d7f2d720df5d4b24471ea87",
+      "gitBlobSha": "f5240bb8ad2ab71b3c263adf7ab07a6b71d26274"
+    }
+  ]
+}
