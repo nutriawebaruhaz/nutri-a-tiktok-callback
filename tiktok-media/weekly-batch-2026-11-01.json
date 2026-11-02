@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "batchWeek": "2026-11-01",
+  "media": [
+    {
+      "path": "tiktok-media/weekly-2026-11-02-creamy-mushroom-spaghetti-v1-tiktok-1080.jpg",
+      "sha256": "d46f483c5f18775aa09514e69c01a44500b2d30eec4594c05df54df927d4a3a9",
+      "bytes": 137246
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-03-hummus-italian-crackers-v1.mp4",
+      "sha256": "b3d4dc46d709416d608389930f1145ec1fcd34078fd899445914297be6d933df",
+      "bytes": 173534
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-04-bacon-carbonara-v1-tiktok-1080.jpg",
+      "sha256": "0eca2736f39637d6b44a8ac84be6b49779e412154b5cd2710e687432f8b5ec20",
+      "bytes": 172256
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-05-falafel-hummus-platter-v1.mp4",
+      "sha256": "700c60c1718584122a3ae01f75c6038eb41cc75ccb5a16951d8eb9279c0ea7a0",
+      "bytes": 180607
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-06-tofu-vegetable-fried-rice-v1-tiktok-1080.jpg",
+      "sha256": "df04e43c89c23a82bb91457016b08eed1a22736619248edebd060294ae715aa1",
+      "bytes": 181935
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-07-strawberry-vanilla-waffles-v1.mp4",
+      "sha256": "402bd8f4ce7cb212113f958acdc01c8d5bb67e19d37d486306c40580e6db371f",
+      "bytes": 137155
+    }
+  ]
+}
