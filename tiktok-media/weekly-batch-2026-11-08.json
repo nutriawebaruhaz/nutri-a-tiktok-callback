@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "batchWeek": "2026-11-08",
+  "media": [
+    {
+      "path": "tiktok-media/weekly-2026-11-10-creamy-mushroom-potato-soup-v1.mp4",
+      "sha256": "10b790df5fdc166c10c42c64e1fc1de87abd320bb4e097739f83bda574aaadeb",
+      "bytes": 119187
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-11-garlic-chicken-avocado-quinoa-bowl-v1-tiktok-1080.jpg",
+      "sha256": "24c74176b31ef195295a7c21433f5c7ee4c790f069f0831164bedde331b9f066",
+      "bytes": 151948
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-12-curry-mango-vegetable-stuffed-peppers-v1.mp4",
+      "sha256": "c695e4c6ebb8913e7b53bcc681c6c110ba947762d62a7fb60951533bdb2f53d6",
+      "bytes": 176284
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-13-tomato-basil-keto-pizza-base-bites-v1-tiktok-1080.jpg",
+      "sha256": "1a3100c1e4cb77c9c5e7eb9d4a42c4926828da92e5d213a02cfa2c5717aa27e5",
+      "bytes": 186202
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-14-salty-caramel-berry-yogurt-granola-v1.mp4",
+      "sha256": "429ecf0566b4449cc52a43b69ec30a772d9d4d94c38956a774ecc420c33332a1",
+      "bytes": 137250
+    }
+  ]
+}
