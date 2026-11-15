@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "batchWeek": "2026-11-15",
+  "media": [
+    {
+      "path": "tiktok-media/weekly-2026-11-16-spinach-feta-frittata-v1-tiktok-1080.jpg",
+      "sha256": "c7f9f84579f28b49e7111041541e394003303a16e39ff3abec6ecde21ad251db",
+      "bytes": 191209
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-17-smoky-bbq-chicken-tortilla-wrap-v1.mp4",
+      "sha256": "411e5ba299a55536872a44092b988d899a3d65a6f872137176f8e39cc43c7656",
+      "bytes": 170336
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-18-tomato-basil-penne-v1-tiktok-1080.jpg",
+      "sha256": "af450f1bf451ea511a36b7c74e58cf5f7832cdf1c1de40dd87d87a91a067bbad",
+      "bytes": 232077
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-19-cinnamon-apple-crumble-tart-v1.mp4",
+      "sha256": "8be52b65437d7308943eac974660be8276da88ac824a57a719b55d5a432c5d7a",
+      "bytes": 156711
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-20-herb-potato-croquettes-mustard-dip-v1-tiktok-1080.jpg",
+      "sha256": "e314febbef3959388e79eeec135724d7419ab3db022e9d23fb7a8582b3b2cfd4",
+      "bytes": 169581
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-21-mushroom-green-bean-stuffed-sweet-potato-v1.mp4",
+      "sha256": "67733478b41b3bbd0ec7946f2d68303c1ee4cf21ae92183f508f65f02afe87e4",
+      "bytes": 167342
+    }
+  ]
+}
