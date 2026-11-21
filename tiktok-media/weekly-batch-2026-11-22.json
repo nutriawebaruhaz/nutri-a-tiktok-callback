@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "batchWeek": "2026-11-22",
+  "media": [
+    {
+      "path": "tiktok-media/weekly-2026-11-22-salmon-asparagus-rice-v1.mp4",
+      "sha256": "729c78173c3c06cc9c863f4b0fdba229dd2928cbd988a0f51a5b34e065eef2f5",
+      "bytes": 154568
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-23-chia-pudding-v1-tiktok-1080.jpg",
+      "sha256": "51df159186a90847a0195a606f81cb1bf7bc4b7120d55c799fca87a7a75aa7de",
+      "bytes": 120445
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-24-beef-cheeseburger-v1.mp4",
+      "sha256": "c80f9c40be964dd9905f706705dfe7a4084d057dcec777cbcad013b7cfdbeef2",
+      "bytes": 148453
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-25-roasted-cauliflower-v1-tiktok-1080.jpg",
+      "sha256": "7870ab5d3e70809232ad8ccf4c019c38c5d940cd3eb17070e5328b5f0d1eb04d",
+      "bytes": 153891
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-26-shrimp-avocado-salad-v1.mp4",
+      "sha256": "85af0952549b7ad9864b3060e9efd116d178cb0bf92a7cb6038488f4c8cb331d",
+      "bytes": 171218
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-27-chocolate-brownie-v1-tiktok-1080.jpg",
+      "sha256": "10357ecef6ab02601bd3e6e975fa9c363e2cc64e5f729f45cbb09da5d995c84b",
+      "bytes": 144292
+    },
+    {
+      "path": "tiktok-media/weekly-2026-11-28-eggplant-parmesan-v1.mp4",
+      "sha256": "46a75d8091d903d08dd8071a9097149e7cae86ae96dd84afd6efb9ae70f99d8f",
+      "bytes": 129682
+    }
+  ]
+}
